@@ -1,31 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
-const SignUpForm = ({
+
+const LoginForm = ({
   onSubmit,
   onChange,
   errors,
-  user,
+  user
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
-      <h2 className="card-heading">Sign Up</h2>
+      <h2 className="card-heading">Login</h2>
 
       {errors.summary && <p className="error-message">{errors.summary}</p>}
-
-      <div className="field-line">
-        <TextField
-          floatingLabelText="Name"
-          name="name"
-          errorText={errors.name}
-          onChange={onChange}
-          value={user.name}
-        />
-      </div>
 
       <div className="field-line">
         <TextField
@@ -49,11 +38,13 @@ const SignUpForm = ({
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Create New Account" primary />
+        <RaisedButton type="submit" label="Log in" primary />
       </div>
-      <CardText>Already have an account? Link to Login</CardText>
+
+      <CardText>Dont have an account? Link to create one.</CardText>
     </form>
   </Card>
 );
 
-export default SignUpForm;
+
+export default LoginForm;

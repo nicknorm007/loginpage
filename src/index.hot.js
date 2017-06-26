@@ -5,26 +5,22 @@ require('../assets/css/loginpage/core.scss')
 import "babel-polyfill"
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {AppContainer} from 'react-hot-loader'
-import App from './App'
+
+import {Container} from './index'
 
 
 const root = document.getElementById('loginpage')
 
 
 ReactDOM.render((
-  <AppContainer>
-    <App/>
-  </AppContainer>
+  <Container />
 ), root)
 
 
 if (module.hot) {
   module.hot.accept('./App', () => {
     ReactDOM.render((
-      <AppContainer>
-        <App/>
-      </AppContainer>
+      <Container />
     ), root);
   })
 }
