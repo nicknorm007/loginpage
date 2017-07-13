@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardText } from 'material-ui/Card';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -51,7 +52,7 @@ const SignUpForm = ({
       <div className="button-line">
         <RaisedButton type="submit" label="Create New Account" primary />
       </div>
-      <CardText>Already have an account? Link to Login</CardText>
+      <CardText>Already have an account?&nbsp;<Link to='/login'>Login here.</Link> </CardText>
     </form>
   </Card>
 );

@@ -18,7 +18,7 @@ ReactDOM.render((
 
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept(() => {
     ReactDOM.render((
       <Container />
     ), root);
