@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUpForm from '../components/SignUpForm';
+import server from '../services/server';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class SignUpPage extends React.Component {
@@ -15,7 +16,8 @@ class SignUpPage extends React.Component {
       errors: {},
       user: {
         email: '',
-        name: '',
+        firstname: '',
+        lastname: '',
         password: ''
       }
     };
@@ -45,12 +47,23 @@ class SignUpPage extends React.Component {
    * @param {object} event - the JavaScript event object
    */
   processForm(event) {
-    // prevent default action. in this case, action is the form submission event
+
     event.preventDefault();
 
-    console.log('name:', this.state.user.name);
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
+    let user = {'firstname':this.state.user.firstname, 'lastname':this.state.user.lastname,
+      'email':this.state.user.email, 'password': this.state.user.password};
+
+    server.registerUser(user).then( e => {
+      //console.log(e);
+
+    })
+    .catch(error => {
+
+      console.log(error);
+
+    });
+
+
   }
 
   /**

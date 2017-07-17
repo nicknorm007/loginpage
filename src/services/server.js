@@ -1,10 +1,8 @@
 import axios from 'axios';
-import config from '../config';
 import _ from 'lodash';
+import querystring from 'querystring';
 
 const apiBase = axios.create({ baseURL: `http://localhost:3000/api/` });
-
-
 
 export default {
 
@@ -16,11 +14,9 @@ export default {
    */
   registerUser (user) {
 
-    console.log(querystring.stringify({ user }));
-
     return apiBase.post(
       `/auth/register`,
-      querystring.stringify({ user }),
+      querystring.stringify(user),
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     ).then((res) => {
       return res.data;

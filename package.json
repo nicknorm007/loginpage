@@ -36,6 +36,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^0.18.3",
     "prop-types": "^15.5.10",
+    "querystring": "^0.2.0",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "validator": "^7.0.0"
