@@ -22,6 +22,19 @@ export default {
       return res.data;
     });
   },
+  loginUser(user){
+
+    return apiBase.post(
+      `/auth/login`,
+      querystring.stringify(user),
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+    ).then((res) => {
+      return res.data;
+    });
+
+
+
+  },
 
 
 

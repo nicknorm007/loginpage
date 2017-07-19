@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import server from '../services/server';
 
 class LoginPage extends React.Component {
 
@@ -29,11 +30,26 @@ class LoginPage extends React.Component {
    * @param {object} event - the JavaScript event object
    */
   processForm(event) {
-    // prevent default action. in this case, action is the form submission event
+
     event.preventDefault();
 
     console.log('email:', this.state.user.email);
     console.log('password:', this.state.user.password);
+
+    let user = {'email':this.state.user.email, 'password': this.state.user.password};
+
+    server.loginUser(user).then( e => {
+      console.log(e);
+
+    })
+    .catch(error => {
+
+      console.log(error);
+
+    });
+
+
+
   }
 
   /**
